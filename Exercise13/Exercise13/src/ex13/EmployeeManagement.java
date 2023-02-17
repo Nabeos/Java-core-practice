@@ -83,6 +83,7 @@ public class EmployeeManagement {
       return;
     }
     employees.remove(employee);
+    Employee.setEmployeeCount(Employee.getEmployeeCount()-1);
     System.out.println("Success");
   }
 
@@ -100,6 +101,10 @@ public class EmployeeManagement {
 
   public Employee getEmployee(String id) {
     return this.employees.stream().filter(o -> o.getId().equals(id)).findFirst().orElse(null);
+  }
+
+  public void showAll() {
+    this.employees.stream().forEach(o->System.out.println(o.toString()));
   }
 
 }

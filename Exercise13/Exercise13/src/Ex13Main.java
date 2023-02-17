@@ -15,13 +15,16 @@ public class Ex13Main {
         Scanner scanner = new Scanner(System.in);
         EmployeeManagement management = new EmployeeManagement();
         while (true) {
-            System.out.println("Enter 1: Add new Employee");
+            System.out.println("\nEmployee Management System");
+            System.out.println("Enter 1: Add new Employee  (Total employee: " + Employee.getEmployeeCount() + ")");
             System.out.println("Enter 2: Delete Employee by id");
             System.out.println("Enter 3: Search employee by Type");
-            System.out.println("Enter 4: Out");
+            System.out.println("Enter 4: Show all employee information");
+            System.out.println("Enter 5: Out");
             int option = Integer.parseInt(scanner.nextLine());
             switch (option) {
                 case 1: {
+                    // choose type of employee to enter
                     System.out.println("Enter 1: Experience");
                     System.out.println("Enter 2: Fresher");
                     System.out.println("Enter 3: Intern");
@@ -176,19 +179,20 @@ public class Ex13Main {
                                 }
                             } else {
                                 System.out.println("Full name: ");
-                                String name = scanner.nextLine();
+                                String name = Validator.nameCheck("Insert again");
                                 System.out.println("Birth day: ");
-                                String bd = scanner.nextLine();
+                                String bd = Validator.birthDayCheck("Insert again");
                                 System.out.println("Phone: ");
-                                String phone = scanner.nextLine();
+                                String phone = Validator.phoneCheck("Insert again");
                                 System.out.println("Email: ");
-                                String email = scanner.nextLine();
+                                String email = Validator.emailCheck("Insert again");
                                 System.out.println("Graduation date: ");
                                 String graDate = scanner.nextLine();
                                 System.out.println("Graduation rank: ");
                                 String rank = scanner.nextLine();
                                 System.out.println("Education: ");
                                 String edu = scanner.nextLine();
+                                System.out.println("Certificate: ");
                                 String op;
                                 List<Certificate> certificates = new ArrayList<>();
                                 do {
@@ -201,7 +205,7 @@ public class Ex13Main {
                                     System.out.println("date:");
                                     String certDate = scanner.nextLine();
                                     certificates.add(new Certificate(certId, certName, certRank, certDate));
-                                    System.out.println("Do you have more cert? (y/n)");
+                                    System.out.println("Do you have more certs? (y/n)");
                                     op = scanner.nextLine();
                                 } while (op.equalsIgnoreCase("y"));
                                 Employee employee = new Fresher(id, name, bd, phone, email, 1, certificates, graDate,
@@ -268,19 +272,20 @@ public class Ex13Main {
                                 }
                             } else {
                                 System.out.println("Full name: ");
-                                String name = scanner.nextLine();
+                                String name = Validator.nameCheck("Insert again");
                                 System.out.println("Birth day: ");
-                                String bd = scanner.nextLine();
+                                String bd = Validator.birthDayCheck("Insert again");
                                 System.out.println("Phone: ");
-                                String phone = scanner.nextLine();
+                                String phone = Validator.phoneCheck("Insert again");
                                 System.out.println("Email: ");
-                                String email = scanner.nextLine();
+                                String email = Validator.emailCheck("Insert again");
                                 System.out.println("Majors: ");
                                 String majors = scanner.nextLine();
                                 System.out.println("Semester: ");
                                 String semester = scanner.nextLine();
                                 System.out.println("University: ");
                                 String university = scanner.nextLine();
+                                System.out.println("Certificate: ");
                                 String op;
                                 List<Certificate> certificates = new ArrayList<>();
                                 do {
@@ -321,6 +326,9 @@ public class Ex13Main {
                     break;
                 }
                 case 4:
+                    management.showAll();
+                    break;
+                case 5:
                     return;
                 default:
                     System.out.println("Error");
