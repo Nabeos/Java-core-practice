@@ -38,7 +38,7 @@ public class Intern extends Employee{
   }
   @Override
   public void showMe() {
-    this.toString();
+    System.out.println(this.toString());
   }
 
 }

@@ -40,7 +40,7 @@ public class Fresher extends Employee{
   @Override
   public void showMe() {
     // TODO Auto-generated method stub
-    this.toString();
+    System.out.println(this.toString());
   }
 
 }

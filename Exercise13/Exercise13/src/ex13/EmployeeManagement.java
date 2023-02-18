@@ -104,7 +104,7 @@ public class EmployeeManagement {
   }
 
   public void showAll() {
-    this.employees.stream().forEach(o->System.out.println(o.toString()));
+    this.employees.stream().forEach(o->o.showMe());
   }
 
 }
